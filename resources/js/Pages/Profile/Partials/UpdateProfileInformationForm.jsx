@@ -10,19 +10,12 @@ export default function UpdateProfileInformation({
     status,
     className = '',
 }) {
-    const user = usePage().props.auth.user;
 
-    const { data, setData, patch, errors, processing, recentlySuccessful } =
+    const { data, setData, errors, processing, recentlySuccessful } =
         useForm({
-            name: user.name,
-            email: user.email,
+
         });
 
-    const submit = (e) => {
-        e.preventDefault();
-
-        patch(route('profile.update'));
-    };
 
     return (
         <section className={className}>
@@ -36,7 +29,7 @@ export default function UpdateProfileInformation({
                 </p>
             </header>
 
-            <form onSubmit={submit} className="mt-6 space-y-6">
+            <form className="mt-6 space-y-6">
                 <div>
                     <InputLabel htmlFor="name" value="Name" />
 
